@@ -2,16 +2,20 @@
 
 import mysql.connector 
 
-db = mysql.connector.connect(host="localhost", user="root", password="tfocherry", db="socialcoasterdb")
+user1 = input('Please enter the username for your database: ')
+password1 = input('Please enter the password for your database: ')
+database = input('Please enter the name of your database: ')
+
+db = mysql.connector.connect(host="localhost", user = user1, password = password1, db = database)
 cursor = db.cursor()
 hold, hold2, hold3 = 0, 0, 0
 while hold == 0:
 	user= input('Please enter your username: ')
-	if user == 'root':
+	if user == user1:
 		hold = 1
 		while hold2 == 0:
 			password = input('Please enter your password: ')
-			if password == 'tfocherry':
+			if password == password1:
 				hold2 = 1
 				while hold3 == 0:
 					lang = input('Which language do you need a developer for? Java, Python, HTML, C++, or Ruby?')
